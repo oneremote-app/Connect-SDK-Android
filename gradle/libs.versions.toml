@@ -1,7 +1,41 @@
 [versions]
 agp = "8.9.1"
-jacoco = "0.8.13"
+gradle = "4.0.2"
+javaWebsocket = "1.5.0"
+jmdns = "3.4.1"
+mediarouter = "1.7.0"
+androidAnnotation = "1.9.1"
+androidPreference = "1.2.1"
+appcompat = "1.7.0"
+ddPlist = "1.23"
+srp6a = "2.1.0"
+eddsa = "0.3.0"
+castFramework = "22.0.0"
+mavenAntTasks = "2.1.3"
+junit = "4.12"
+robolectric = "4.2.1"
+mockitoAll = "1.10.19"
+powermock = "1.6.2"
+xmlunit = "1.4"
+
+[libraries]
+gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
+java-websocket = { group = "org.java-websocket", name = "Java-WebSocket", version.ref = "javaWebsocket" }
+jmdns = { group = "javax.jmdns", name = "jmdns", version.ref = "jmdns" }
+android-mediarouter = { group = "androidx.mediarouter", name = "mediarouter", version.ref = "mediarouter" }
+android-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "androidAnnotation" }
+android-preference = { group = "androidx.preference", name = "preference", version.ref = "androidPreference" }
+android-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+dd-plist = { group = "com.googlecode.plist", name = "dd-plist", version.ref = "ddPlist" }
+srp6a = { group = "com.nimbusds", name = "srp6a", version.ref = "srp6a" }
+eddsa = { group = "net.i2p.crypto", name = "eddsa", version.ref = "eddsa" }
+android-cast-framework = { group = "com.google.android.gms", name = "play-services-cast-framework", version.ref = "castFramework" }
+maven-ant-tasks = { group = "org.apache.maven", name = "maven-ant-tasks", version.ref = "mavenAntTasks" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+mockito-all = { group = "org.mockito", name = "mockito-all", version.ref = "mockitoAll" }
+powermock = { group = "org.powermock", name = "powermock-api-mockito", version.ref = "powermock" }
+xmlunit = { group = "xmlunit", name = "xmlunit", version.ref = "xmlunit" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp" }
-jacoco = { id="org.jacoco.jacoco-maven-plugin", version.ref="jacoco" }

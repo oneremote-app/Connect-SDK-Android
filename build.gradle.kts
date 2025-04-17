@@ -11,7 +11,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.0.1")
+        classpath(libs.gradle)
     }
 }
 
@@ -93,15 +93,16 @@ android {
 
     buildTypes {
         getByName("debug") {
-            isTestCoverageEnabled = true
+            enableUnitTestCoverage = true
+            enableAndroidTestCoverage = true
         }
         getByName("release") {
             isMinifyEnabled = false
         }
     }
 
-    lintOptions {
-        isAbortOnError = false
+    lint {
+        abortOnError = false
     }
 
     compileOptions {
@@ -122,26 +123,26 @@ android {
 }
 
 dependencies {
-    implementation("org.java-websocket:Java-WebSocket:1.5.0")
-    implementation("javax.jmdns:jmdns:3.4.1")
+    implementation(libs.java.websocket)
+    implementation(libs.jmdns)
     implementation(fileTree(mapOf("dir" to "modules/firetv/libs", "include" to listOf("*.jar"))))
 
-    implementation("androidx.mediarouter:mediarouter:1.2.0")
-    implementation("androidx.annotation:annotation:1.0.0")
-    implementation("androidx.preference:preference:1.1.1")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("com.googlecode.plist:dd-plist:1.23")
-    implementation("com.nimbusds:srp6a:2.1.0")
-    implementation("net.i2p.crypto:eddsa:0.3.0")
-    implementation("com.google.android.gms:play-services-cast-framework:9.4.0")
+    implementation(libs.android.mediarouter)
+    implementation(libs.android.annotation)
+    implementation(libs.android.preference)
+    implementation(libs.android.appcompat)
+    implementation(libs.dd.plist)
+    implementation(libs.srp6a)
+    implementation(libs.eddsa)
+    implementation(libs.android.cast.framework)
     implementation(files("core/libs/lgcast-android-lib.jar"))
 
-    testImplementation("org.apache.maven:maven-ant-tasks:2.1.3")
-    testImplementation("junit:junit:4.12")
-    testImplementation("org.robolectric:robolectric:2.4")
-    testImplementation("org.mockito:mockito-all:1.10.19")
-    testImplementation("org.powermock:powermock-api-mockito:1.6.2")
-    testImplementation("xmlunit:xmlunit:1.4")
+    testImplementation(libs.maven.ant.tasks)
+    testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.mockito.all)
+    testImplementation(libs.powermock)
+    testImplementation(libs.xmlunit)
 }
 
 publishing {
@@ -152,7 +153,7 @@ publishing {
             version = "VERSION_NAME"       // update with your version
 
             // Add any artifacts, for example your AAR or jar:
-            artifact("$buildDir/outputs/aar/${project.name}-release.aar")
+            artifact("${layout.buildDirectory}/outputs/aar/${project.name}-release.aar")
 
             pom {
                 name.set("POM_NAME")
