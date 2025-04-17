@@ -58,6 +58,8 @@ tasks.named("build") {
 }
 
 android {
+    namespace = "com.connectsdk"
+
     compileSdk = 35
     buildToolsVersion = "30.0.3"
 
